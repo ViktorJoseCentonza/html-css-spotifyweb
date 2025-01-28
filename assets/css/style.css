@@ -15,7 +15,7 @@ root {
 }
 
 main {
-    height: calc(100vh - 220px);
+    height: calc(100vh - 110px);
 }
 
 .d-flex {
@@ -31,16 +31,18 @@ main {
         border: 3px dotted black;
     }
 
-    header {
-        background-color: red;
-        height: 110px;
-    }
+
 
     main {
         background-color: blue;
 
         #sidebar {
             background-color: orange;
+        }
+
+        #upgrade-plan {
+            background-color: red;
+            height: 110px;
         }
 
         #main-content {
