@@ -3,7 +3,12 @@
 
 
 root {
-    --main-color: white;
+    --main-color: #080b12;
+    --secondary-color: black;
+    /* --header-color:; maybe just shading with bordershadow?*/
+    --footer-color: #282828;
+    --text-color: white;
+    --secondary-text-color: #7a7c81;
 }
 
 *,
@@ -16,6 +21,15 @@ root {
 
 main {
     height: calc(100vh - 110px);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    width: 100%;
 }
 
 .d-flex {
@@ -72,7 +86,23 @@ main {
 
 main {
     #sidebar {
+        color: var(--text-color);
         width: 230px;
+
+        .top-nav {
+
+            a {
+                span {
+                    vertical-align: super;
+                }
+
+
+                img {
+                    width: 30px;
+                }
+            }
+        }
+
     }
 
     #main-content {
