@@ -2,12 +2,12 @@
 
 
 
-root {
-    --main-color: #080b12;
+:root {
+    --main-color: #141922;
     --secondary-color: black;
-    /* --header-color:; maybe just shading with bordershadow?*/
+    --header-color: #080b12;
     --footer-color: #282828;
-    --text-color: white;
+    --text-color: #ffffff;
     --secondary-text-color: #7a7c81;
 }
 
@@ -86,6 +86,8 @@ img {
 
 main {
     #sidebar {
+        background-color: var(--secondary-color);
+
         color: var(--text-color);
         width: 230px;
 
@@ -94,6 +96,7 @@ main {
             a {
                 span {
                     vertical-align: super;
+
                 }
 
 
@@ -106,13 +109,25 @@ main {
     }
 
     #main-content {
+        background-color: var(--main-color);
         flex-grow: 1;
         overflow-y: scroll;
+
+        /*fake header*/
+        #upgrade-plan {
+            height: 110px;
+            background-color: var(--header-color);
+        }
     }
 }
 
 /* #endregion main */
 
 /* #region footer */
+
+footer {
+    height: 110px;
+    background-color: var(--footer-color);
+}
 
 /* #endregion footer */
