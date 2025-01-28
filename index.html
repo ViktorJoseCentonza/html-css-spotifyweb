@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -15,7 +19,7 @@
 
     <main class="d-flex">
 
-        <nav id="sidebar">
+        <nav id="sidebar" class="d-flex">
             <!-- side navigation -->
             <div class="logo">
                 <!-- logo -->
@@ -28,7 +32,8 @@
                 <div>
                     <!-- home -->
 
-                    <a href="index.html"><img src="assets/img/home.svg" alt="Home"><span>Home</span></a>
+                    <a href="index.html"><img src="assets/img/home.svg" alt="Home"><span
+                            class="highlight">Home</span></a>
                 </div>
 
                 <div>
@@ -41,25 +46,41 @@
                     <a href="#"><img src="assets/img/libreria.svg" alt="library"><span>La tua libreria</span></a>
                 </div>
             </div>
-            <div>
+            <div class="mid-nav">
                 <!-- playlist container -->
                 <div class="new-playlist">
 
-                    <h4>PLAYLIST</h4>
+                    <h4 class="highlight">PLAYLIST</h4>
                     <!-- make a playlist -->
-                    <a href="#"><i class="fa-solid fa-plus"></i></a>
+                    <a href="#"><span class="square"><i class="fa-solid fa-plus"></i></span><span>Crea
+                            Playlist</span></a>
                 </div>
 
-                <div>
+                <div class="user-playlists">
                     <!-- playlists -->
+                    <a href="#">Nome Playlist</a>
+                    <a href="#">Nome Playlist</a>
+                    <a href="#">Nome Playlist</a>
+                    <a href="#">Nome Playlist</a>
+                    <a href="#">Nome Playlist</a>
+                    <a href="#">Nome Playlist</a>
+                    <a href="#">Nome Playlist</a>
                 </div>
+            </div>
 
-                <div>
+            <div class="bottom-nav">
+                <div class="download-cta">
                     <!-- install the app cta -->
+                    <a href="#"><i class="fa-regular fa-circle-down"></i><span>Installa app</span></a>
                 </div>
 
-                <div>
+                <hr>
+
+                <div class="user-profile">
                     <!-- user profile -->
+                    <a href="#"><img src="assets/img/profile.svg" alt="profile"><span class="highlight">John
+                            Doe</span>
+                    </a>
                 </div>
             </div>
         </nav>

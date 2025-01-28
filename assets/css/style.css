@@ -7,7 +7,7 @@
     --secondary-color: black;
     --header-color: #080b12;
     --footer-color: #282828;
-    --text-color: #ffffff;
+    --highlight-color: #ffffff;
     --secondary-text-color: #7a7c81;
 }
 
@@ -17,6 +17,10 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+body {
+    font-family: Montserrat;
 }
 
 main {
@@ -34,6 +38,12 @@ img {
 
 .d-flex {
     display: flex;
+}
+
+.highlight {
+    /*to make important/highlighted text white*/
+    color: var(--highlight-color);
+
 }
 
 
@@ -86,12 +96,42 @@ img {
 
 main {
     #sidebar {
+        flex-direction: column;
+        position: relative;
         background-color: var(--secondary-color);
 
-        color: var(--text-color);
+        color: var(--secondary-text-color);
         width: 230px;
+        overflow-y: scroll;
+
+        &>* {
+            padding: 0 2rem 2rem 2rem;
+        }
+
+        .logo {
+
+            padding-top: 1.25rem;
+            height: 110px;
+
+
+            a {
+
+                img {
+                    width: 75%;
+
+                }
+            }
+        }
 
         .top-nav {
+
+            /* padding-left: 1.25rem; */
+
+            & div:first-child {
+                padding-top: 0;
+
+
+            }
 
             a {
                 span {
@@ -104,6 +144,71 @@ main {
                     width: 30px;
                 }
             }
+        }
+
+        .mid-nav {
+            div {
+                h4 {
+                    padding: 0.5rem 0;
+                }
+
+                a {
+
+                    display: block;
+                    padding: 0.5rem 0;
+
+                    span:not(.square) {
+
+                        padding-left: 0.5rem;
+                    }
+
+                    span.square {
+                        display: inline-block;
+                        position: relative;
+                        background-color: var(--footer-color);
+                        width: 40px;
+                        height: 40px;
+                        vertical-align: middle;
+
+
+                        i {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+
+                }
+            }
+
+
+
+
+
+        }
+
+        .bottom-nav {
+            margin-top: auto;
+
+            .download-cta {
+                padding-bottom: 0.75rem;
+            }
+
+            .user-profile {
+                a {
+                    span {
+                        padding: 0 1rem;
+                        vertical-align: super;
+                    }
+
+                    img {
+                        padding-top: 0.75rem;
+                        width: 10%;
+                    }
+                }
+            }
+
         }
 
     }
