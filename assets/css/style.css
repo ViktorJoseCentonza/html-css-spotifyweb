@@ -297,6 +297,21 @@ main {
 
             .row {
 
+                .popular-artists-container& {
+                    .d-flex {
+                        .card {
+                            .img-container {
+                                img {
+                                    border-radius: 50%;
+                                }
+
+                            }
+
+
+                        }
+                    }
+                }
+
                 .row-title {
                     padding: 2rem 0;
 
