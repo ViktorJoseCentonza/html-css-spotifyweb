@@ -368,7 +368,7 @@ footer {
 
     #main-bottom-nav {
 
-        padding: 1.5rem 0rem;
+        padding: 0rem;
         color: var(--highlight-color);
         align-items: center;
         justify-content: space-between;
@@ -379,25 +379,16 @@ footer {
 
 
         .current-song {
-
-            height: 100%;
+            /* bottom left nav section for current song being played */
             width: 140px;
             min-width: 180px;
-
-            /* general style div inside bottom left section of nav */
-            div {
-                flex-basis: 30%;
-                height: 100%;
-
-                a span {
-                    color: var(--secondary-text-color);
-                }
-            }
+            justify-content: space-around;
 
             .img-container {
+                flex-basis: 30%;
+
                 a {
                     display: inline-block;
-                    height: 80%;
                     padding: 0.5rem;
 
                     img {
@@ -409,10 +400,20 @@ footer {
                 }
             }
 
-            .song-info {}
+            .song-info {
+                flex-basis: 50%;
+                align-self: center;
+
+                /* to color the song info lower text */
+                a span {
+                    color: var(--secondary-text-color);
+                }
+            }
 
             .song-interaction {
-                padding-left: 25%;
+                /* favourite and folder icons styling */
+                align-self: center;
+                flex-basis: 10%;
                 font-size: x-large;
                 display: block;
             }
@@ -421,8 +422,19 @@ footer {
         .song-nav {
             flex-grow: 1;
             text-align: center;
+            /* to avoid exiting container when viewport width too low */
+            min-width: fit-content;
 
-            to stop min-width: fit-content;
+            .song-control {
+                justify-content: space-around;
+                align-items: center;
+
+                a:nth-child(3) {
+                    i {
+                        font-size: xx-large;
+                    }
+                }
+            }
         }
 
         .utilities {
