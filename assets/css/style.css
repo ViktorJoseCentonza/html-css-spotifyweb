@@ -92,9 +92,40 @@ a:hover {
     }
 }
 
+.top-nav {
+
+    div {
+        border: 3px solid transparent;
+
+        &:first-child {
+            border-left: 3px solid lime;
+        }
+
+        &:hover {
+            border-left: 3px solid lime;
+
+        }
+
+    }
+
+}
+
 .categories-nav {
 
     a {
+
+        /* hr{
+            position: relative;
+            left: 25%;
+            display: none;
+            color: lime;
+            width: 50%;
+        }
+
+        &:hover hr {
+
+            display: inline-block;
+        } different approach but causes snapping of page*/
 
 
         div {
@@ -666,7 +697,8 @@ footer {
         width: 230px;
         min-width: 230px;
 
-        &>* {
+        /* no top nav padding to allow hover styling */
+        &>*:not(.top-nav) {
             padding: 0 2rem 2rem 2rem;
         }
 
@@ -687,6 +719,9 @@ footer {
         .top-nav {
 
             div {
+                padding: 0 2rem;
+                margin-bottom: 0.5rem;
+
                 a {
                     span {
                         display: inline;
