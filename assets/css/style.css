@@ -92,6 +92,28 @@ a:hover {
     }
 }
 
+.categories-nav {
+
+    a {
+
+
+        div {
+            /* to avoid page snapping on hover */
+            border: 2px solid transparent;
+            position: relative;
+            width: 50%;
+
+            /*25% because alignment starts from left-most of div which is already 50%*/
+            left: 25%;
+        }
+
+        &:hover div {
+
+            border-bottom: 2px solid lime;
+        }
+    }
+}
+
 /* #end region hover elements */
 
 /* #region rangeinputstyles */
@@ -405,7 +427,7 @@ main {
                 a {
 
                     margin: 0.5rem;
-                    padding-bottom: 2rem;
+                    margin-bottom: 2rem;
                 }
             }
 
