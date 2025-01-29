@@ -5,7 +5,8 @@
 :root {
     --main-color: #141922;
     --secondary-color: black;
-    --header-color: #080b12;
+    --header-color: #080b12e0;
+    /*transparent!!*/
     --footer-color: #282828;
     --highlight-color: #ffffff;
     --secondary-text-color: #7a7c81;
@@ -321,6 +322,7 @@ main {
         background-color: var(--main-color);
         flex-grow: 1;
         overflow-y: scroll;
+        font-weight: 700;
 
         /*fake header*/
         #upgrade-plan {
@@ -331,7 +333,7 @@ main {
             background-color: var(--header-color);
             justify-content: flex-end;
             padding: 0.5rem;
-            filter: opacity(70%);
+
 
             .upgrade-bttn {
 
@@ -353,10 +355,10 @@ main {
                 flex-basis: 25%;
                 flex-wrap: wrap;
                 justify-content: center;
-                padding: 1rem 0;
+                padding: 0.5rem 0;
 
                 a {
-                    font-weight: 700;
+
                     margin: 0.5rem;
                     padding-bottom: 2rem;
                 }
@@ -379,8 +381,14 @@ main {
                     }
                 }
 
+
+
                 .row-title {
-                    padding: 2rem 0;
+                    padding-bottom: 1.2rem;
+
+                    h1 {
+                        font-size: x-large;
+                    }
 
                     span {
                         /*display block because it wouldn't move the h1 otherwise*/
@@ -432,6 +440,7 @@ main {
 /* #region footer */
 
 footer {
+    font-weight: 600;
     height: 110px;
     background-color: var(--footer-color);
 
@@ -473,8 +482,12 @@ footer {
             .song-info {
                 flex-basis: 40%;
                 align-self: center;
-                font-size: smaller;
+                font-size: x-small;
                 padding-right: 0.5rem;
+
+                h4 {
+                    font-size: small;
+                }
 
                 /* to color the song info lower text */
                 a span {
