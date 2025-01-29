@@ -51,27 +51,63 @@ img {
 }
 
 /*works on 77% of devices*/
+span.range {
+    /*to make hover accurate*/
+    height: fit-content;
+    width: fit-content;
 
-input[type='range'],
-input[type='range']::-webkit-slider-runnable-track,
-input[type='range']::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 80%;
-    height: 10px;
+    &:hover {
+
+        input[type='range'] {
+            /*make green on hover*/
+            /* !!!!important light colors cause dark background and vice-versa */
+            accent-color: rgb(11, 167, 24);
+
+        }
+
+        input[type='range']::-webkit-slider-thumb {
+            /*show when in hover*/
+            visibility: visible;
+        }
+
+
+
+
+    }
+
+    input[type='range'] {
+        width: 80%;
+        height: 0.3rem;
+        /*rounded edges*/
+        border-radius: 5px;
+        /*color when not in hover*/
+        /* !!!!important light colors cause dark background and vice-versa */
+        accent-color: var(--highlight-color);
+    }
+
+    input[type='range']::-webkit-slider-runnable-track {
+        height: 0.3rem;
+        /*allow slider to go all the way to the right*/
+        margin-right: -12px;
+
+    }
+
+    input[type='range']::-webkit-slider-thumb {
+        /*hide when not in hover*/
+        visibility: hidden;
+        /* thumb sizing */
+        height: 20px;
+        width: 20px;
+        /* align to slider line */
+        margin-top: -5.25px;
+        border-radius: 50%;
+    }
 }
 
-input[type='range']::-webkit-slider-thumb {
-    position: relative;
-    height: 30px;
-    width: 30px;
-    margin-top: -10px;
-    background: white;
-    border-radius: 50%;
-}
 
-input[type='range']::-ms-fill-lower {
+/* input[type='range']::-ms-fill-lower {
     background-color: green !important;
-}
+} doesn't work in webkit*/
 
 
 /* todo add support for other browsers*/
