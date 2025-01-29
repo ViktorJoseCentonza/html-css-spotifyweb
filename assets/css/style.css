@@ -95,8 +95,8 @@ a:hover {
 .top-nav {
 
     div {
-        border: 3px solid transparent;
-
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
 
 
     }
@@ -282,17 +282,21 @@ main {
 
         overflow-y: scroll;
 
-
+        /* no top nav padding to allow hover styling */
+        &>*:not(.top-nav, .logo) {
+            padding: 0 2rem 2rem 2rem;
+        }
 
 
 
         .logo {
 
-            padding-top: 0.5rem;
+            padding: 0.5rem;
 
             a {
-
-
+                img {
+                    width: 100%;
+                }
 
                 img:last-child {
                     display: none;
@@ -307,7 +311,10 @@ main {
         .top-nav {
 
             div {
-                padding: 0.3rem 0;
+                padding: 0 0.5rem;
+
+                /*line-height instead of padding to avoid deadzones between buttons causing glitchy behavior*/
+                line-height: 40px;
 
                 a {
 
@@ -702,14 +709,8 @@ footer {
 
     nav#sidebar {
         align-items: flex-start;
-
         width: 230px;
         min-width: 230px;
-
-        /* no top nav padding to allow hover styling */
-        &>*:not(.top-nav) {
-            padding: 0 2rem 2rem 2rem;
-        }
 
         .logo {
             height: 110px;
@@ -717,7 +718,6 @@ footer {
 
             img:last-child {
                 display: inline !important;
-
             }
 
             img:first-child {
@@ -729,7 +729,6 @@ footer {
 
             div {
                 padding: 0 2rem;
-                margin-bottom: 0.5rem;
 
                 a {
                     span {
