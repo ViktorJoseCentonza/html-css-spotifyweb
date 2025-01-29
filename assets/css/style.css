@@ -57,8 +57,11 @@ img {
 /*works on 77% of devices*/
 span.range {
     /*to make hover accurate*/
-    height: fit-content;
+    height: 0.3rem;
     width: fit-content;
+    /* align to the center of the span */
+    position: relative;
+    bottom: 0.17rem;
 
     &:hover {
 
@@ -447,7 +450,7 @@ footer {
 
         .current-song {
             /* bottom left nav section for current song being played */
-            width: 180px;
+            width: 140px;
             justify-content: space-around;
 
             .img-container {
@@ -468,8 +471,10 @@ footer {
             }
 
             .song-info {
-                flex-basis: 50%;
+                flex-basis: 40%;
                 align-self: center;
+                font-size: smaller;
+                padding-right: 0.5rem;
 
                 /* to color the song info lower text */
                 a span {
@@ -482,6 +487,8 @@ footer {
                 align-self: center;
                 flex-basis: 10%;
                 display: block;
+
+                color: var(--secondary-text-color);
             }
         }
 
@@ -490,10 +497,11 @@ footer {
             text-align: center;
 
             .song-control {
-                justify-content: space-around;
+                justify-content: center;
                 align-items: center;
+                gap: 1.5rem;
                 padding-bottom: 1rem;
-                min-width: 230px;
+                min-width: 200px;
 
                 a:nth-child(3) {
                     i {
@@ -501,13 +509,25 @@ footer {
                     }
                 }
             }
+
+            .song-time-control {
+                justify-content: center;
+
+                font-size: smaller;
+
+                span:nth-child(2) {
+                    flex-basis: 60%;
+                }
+            }
         }
 
         .utilities {
-            width: 140px;
+            width: 200px;
+            font-size: smaller;
+            justify-content: center;
+            gap: 5%;
+            padding: 0 1rem;
 
-            justify-content: space-evenly;
-            gap: 0.5rem;
         }
 
 
