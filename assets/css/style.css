@@ -41,6 +41,8 @@ main {
     height: calc(100vh - 110px);
 }
 
+
+
 a {
     text-decoration: none;
     color: inherit;
@@ -49,6 +51,8 @@ a {
 img {
     width: 100%;
 }
+
+/* #region rangeinputstyles */
 
 /*works on 77% of devices*/
 span.range {
@@ -62,16 +66,14 @@ span.range {
             /*make green on hover*/
             /* !!!!important light colors cause dark background and vice-versa */
             accent-color: rgb(11, 167, 24);
-
+            /* todo fix this making thumb green instead of white */
         }
 
         input[type='range']::-webkit-slider-thumb {
             /*show when in hover*/
             visibility: visible;
+
         }
-
-
-
 
     }
 
@@ -83,6 +85,7 @@ span.range {
         /*color when not in hover*/
         /* !!!!important light colors cause dark background and vice-versa */
         accent-color: var(--highlight-color);
+
     }
 
     input[type='range']::-webkit-slider-runnable-track {
@@ -112,7 +115,7 @@ span.range {
 
 /* todo add support for other browsers*/
 
-
+/* #endregion rangeinputstyles */
 .d-flex {
     display: flex;
 }
@@ -163,10 +166,6 @@ span.range {
 /* #endregion debug */
 
 /* #endregion common */
-
-/* #region header */
-
-/* #endregion header */
 
 
 /* #region main */
@@ -322,10 +321,14 @@ main {
 
         /*fake header*/
         #upgrade-plan {
+            position: sticky;
+            top: 0;
+            min-width: calc(100% - 50px);
             height: 110px;
             background-color: var(--header-color);
             justify-content: flex-end;
             padding: 0.5rem;
+            filter: opacity(70%);
 
             .upgrade-bttn {
 
@@ -437,14 +440,14 @@ footer {
         justify-content: space-between;
         height: 100%;
 
+
         /* to avoid breaking when viewport width too low */
         overflow-x: scroll;
 
 
         .current-song {
             /* bottom left nav section for current song being played */
-            width: 140px;
-            min-width: 180px;
+            width: 180px;
             justify-content: space-around;
 
             .img-container {
@@ -455,6 +458,7 @@ footer {
                     padding: 0.5rem;
 
                     img {
+
                         /* height auto to allow auto resizing when container changes */
                         height: auto;
                         width: 100%;
@@ -477,7 +481,6 @@ footer {
                 /* favourite and folder icons styling */
                 align-self: center;
                 flex-basis: 10%;
-                font-size: x-large;
                 display: block;
             }
         }
@@ -485,12 +488,12 @@ footer {
         .song-nav {
             flex-grow: 1;
             text-align: center;
-            /* to avoid exiting container when viewport width too low */
-            min-width: fit-content;
 
             .song-control {
                 justify-content: space-around;
                 align-items: center;
+                padding-bottom: 1rem;
+                min-width: 230px;
 
                 a:nth-child(3) {
                     i {
@@ -502,7 +505,9 @@ footer {
 
         .utilities {
             width: 140px;
-            min-width: 180px;
+
+            justify-content: space-evenly;
+            gap: 0.5rem;
         }
 
 
@@ -586,6 +591,10 @@ footer {
         }
     }
 
+    #upgrade-plan {
+        min-width: calc(100% - 230px);
+    }
+
     footer {
         nav#main-bottom-nav {
 
@@ -593,7 +602,7 @@ footer {
                 /* resize left nav container to align to sidebar */
                 width: 230px;
                 /* min width to allow some movement */
-                min-width: 180px;
+                min-width: 160px;
 
                 .img-container {
 
@@ -608,7 +617,7 @@ footer {
                 /* resize right nav container to have same width as the left */
                 width: 230px;
                 /* min width to allow some movement */
-                min-width: 180px;
+                min-width: 160px;
             }
         }
     }
@@ -638,6 +647,11 @@ footer {
             .current-song {
                 width: 230px;
                 min-width: 230px;
+
+                .song-interaction {
+                    display: inline-block;
+
+                }
             }
 
             .utilities {
