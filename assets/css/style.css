@@ -50,6 +50,33 @@ img {
     width: 100%;
 }
 
+/*works on 77% of devices*/
+
+input[type='range'],
+input[type='range']::-webkit-slider-runnable-track,
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 80%;
+    height: 10px;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    position: relative;
+    height: 30px;
+    width: 30px;
+    margin-top: -10px;
+    background: white;
+    border-radius: 50%;
+}
+
+input[type='range']::-ms-fill-lower {
+    background-color: green !important;
+}
+
+
+/* todo add support for other browsers*/
+
+
 .d-flex {
     display: flex;
 }
