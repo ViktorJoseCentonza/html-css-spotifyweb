@@ -365,6 +365,73 @@ main {
 footer {
     height: 110px;
     background-color: var(--footer-color);
+
+    #main-bottom-nav {
+
+        padding: 1.5rem 0rem;
+        color: var(--highlight-color);
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+
+        /* to avoid breaking when viewport width too low */
+        overflow-x: scroll;
+
+
+        .current-song {
+
+            height: 100%;
+            width: 140px;
+            min-width: 180px;
+
+            /* general style div inside bottom left section of nav */
+            div {
+                flex-basis: 30%;
+                height: 100%;
+
+                a span {
+                    color: var(--secondary-text-color);
+                }
+            }
+
+            .img-container {
+                a {
+                    display: inline-block;
+                    height: 80%;
+                    padding: 0.5rem;
+
+                    img {
+                        /* height auto to allow auto resizing when container changes */
+                        height: auto;
+                        width: 100%;
+
+                    }
+                }
+            }
+
+            .song-info {}
+
+            .song-interaction {
+                padding-left: 25%;
+                font-size: x-large;
+                display: block;
+            }
+        }
+
+        .song-nav {
+            flex-grow: 1;
+            text-align: center;
+
+            to stop min-width: fit-content;
+        }
+
+        .utilities {
+            width: 140px;
+            min-width: 180px;
+        }
+
+
+    }
 }
 
 /* #endregion footer */
@@ -443,6 +510,33 @@ footer {
             }
         }
     }
+
+    footer {
+        nav#main-bottom-nav {
+
+            .current-song {
+                /* resize left nav container to align to sidebar */
+                width: 230px;
+                /* min width to allow some movement */
+                min-width: 180px;
+
+                .img-container {
+
+                    /* resize current song image */
+                    a {
+                        height: 100%;
+                    }
+                }
+            }
+
+            .utilities {
+                /* resize right nav container to have same width as the left */
+                width: 230px;
+                /* min width to allow some movement */
+                min-width: 180px;
+            }
+        }
+    }
 }
 
 
@@ -460,6 +554,20 @@ footer {
                         }
                     }
                 }
+            }
+        }
+    }
+
+    footer {
+        nav#main-bottom-nav {
+            .current-song {
+                width: 230px;
+                min-width: 230px;
+            }
+
+            .utilities {
+                width: 230px;
+                min-width: 230px;
             }
         }
     }
