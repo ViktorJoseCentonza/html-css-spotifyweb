@@ -7,6 +7,16 @@
     --footer-color: #282828;
     --highlight-color: #ffffff;
     --secondary-text-color: #7a7c81;
+
+    --scroll-background-color: #282828;
+    --scroll-thumb-color: white;
+    /* warning with accent background flips based on brightness of color!! light means dark background and vice-versa */
+    --range-slider-accent: white;
+    --hover-slider-accent: #79b229;
+    /* range-thumb-color is based on a filter!! */
+
+    --hover-lines-color: lime;
+
 }
 
 *,
@@ -94,8 +104,7 @@ img {
         border-radius: 5px;
         /*color when not in hover*/
         /* !!important light colors cause dark background and vice-versa */
-        /* !!change filter in webkit-slider-thumb to adjust its color to this one */
-        accent-color: white;
+        accent-color: var(--range-slider-accent);
     }
 
     input[type='range']::-webkit-slider-runnable-track {
@@ -105,7 +114,7 @@ img {
     }
 
     input[type='range']::-webkit-slider-thumb {
-        /*to change thumb color, filter based on current accent color, !!Change this if changing accent color!!*/
+        /*to change thumb color*/
         filter: brightness(0) saturate(100%) invert(100%) sepia(8%) saturate(0%) hue-rotate(320deg) brightness(110%) contrast(110%);
         /*hide when not in hover*/
         visibility: hidden;
@@ -168,7 +177,7 @@ a:hover {
 
     /* preselected element (home page, first child is home symbol) */
     div:first-of-type {
-        border-left: 3px solid lime;
+        border-left: 3px solid var(--hover-lines-color);
     }
 
     /* switches preselected helement when another element is hovered*/
@@ -181,7 +190,7 @@ a:hover {
 
     /* make border colored on hover */
     div:hover {
-        border-left: 3px solid lime;
+        border-left: 3px solid var(--hover-lines-color);
     }
 }
 
@@ -200,7 +209,7 @@ a:hover {
         }
 
         &:hover div {
-            border-bottom: 2px solid lime;
+            border-bottom: 2px solid var(--hover-lines-color);
         }
     }
 }
@@ -223,7 +232,7 @@ a:hover {
         input[type='range'] {
             /*make green on hover*/
             /* !!!!important light colors cause dark background and vice-versa */
-            accent-color: #79b229;
+            accent-color: var(--hover-slider-accent);
         }
 
         input[type='range']::-webkit-slider-thumb {
@@ -309,7 +318,7 @@ main {
 
         .top-nav {
             /* to hide items behind when scrolling */
-            background-color: black;
+            background-color: var(--secondary-color);
             position: sticky;
             top: 0;
             /* to hide items behind when scrolling */
@@ -393,7 +402,7 @@ main {
                         i {
                             /* center the plus icon inside the square */
                             font-size: xx-large;
-                            color: black;
+                            color: var(--secondary-color);
                             position: absolute;
                             top: 50%;
                             left: 50%;
@@ -412,7 +421,7 @@ main {
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: black;
+            background-color: var(--secondary-color);
 
             .download-cta {
                 padding-bottom: 0.75rem;
@@ -531,7 +540,7 @@ main {
                                 left: 50%;
                                 transform: translate(-50%, -50%);
                                 font-size: 50px;
-                                color: white;
+                                color: var(--highlight-color);
                             }
                         }
 
