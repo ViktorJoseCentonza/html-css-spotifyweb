@@ -52,6 +52,27 @@ img {
     color: var(--highlight-color);
 }
 
+/* #region scrollbarstyles */
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--footer-color);
+}
+
+::-webkit-scrollbar-thumb {
+    /* decides until what the background should show above */
+    background-clip: content-box;
+    /* with background-clip makes thumb appear smaller thanks to transparent */
+    border: 5px solid transparent;
+    border-radius: 9px;
+    background-color: var(--highlight-color);
+}
+
+/* #endregion scrollbarstyles */
+
 /* #region rangeinputstyles */
 
 /*works on 77% of devices*/
@@ -103,6 +124,12 @@ img {
 /* #endregion rangeinputstyles */
 
 /* #region hover elements */
+
+::-webkit-scrollbar-thumb:hover {
+    /* widens on hover by reducing transparent border*/
+    border: 3px solid transparent;
+}
+
 a:hover {
     /* all anchors become highlited on hover */
     color: var(--highlight-color);
