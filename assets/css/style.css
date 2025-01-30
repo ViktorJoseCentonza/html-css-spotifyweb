@@ -1,18 +1,13 @@
 /* #region common */
-
-
-
 :root {
     --main-color: #141922;
     --secondary-color: black;
-    --header-color: #080b12e0;
     /*transparent!!*/
+    --header-color: #080b12e0;
     --footer-color: #282828;
     --highlight-color: #ffffff;
     --secondary-text-color: #7a7c81;
 }
-
-/* Firefox */
 
 *,
 *:before,
@@ -21,61 +16,104 @@
     margin: 0;
     box-sizing: border-box;
 
-    /* hide scrollbar for chrome safari and opera */
-    ::-webkit-scrollbar {
-        display: none;
-    }
-
-    /* hide scrollbar for IE and edge */
-    -ms-overflow-style: none;
-
-    /* hide scrollbar for firefox */
-    scrollbar-width: none;
 }
 
 body {
     font-family: Montserrat;
     color: var(--secondary-text-color);
+
 }
 
 main {
+    /* fixed height to make footer sticky */
     height: calc(100vh - 110px);
+
 }
 
-
-
 a {
+    /*remove underline and make all anchors take container's color*/
     text-decoration: none;
     color: inherit;
 }
 
-
-
 img {
+    /* make all images stay inside containers if something bad happens */
     width: 100%;
 }
 
-
 .d-flex {
+    /* utility class */
     display: flex;
 }
 
 .highlight {
+    /* utility class */
     /*to make important/highlighted text white*/
     color: var(--highlight-color);
+}
+
+/* #region rangeinputstyles */
+
+/*works on 77% of devices*/
+.range {
+    /*to make hover accurate*/
+    height: 0.3rem;
+    width: fit-content;
+    /* align to the center of the span */
+    position: relative;
+    bottom: 0.17rem;
+
+
+
+    input[type='range'] {
+
+        width: 80%;
+        height: 0.3rem;
+        /*rounded edges*/
+        border-radius: 5px;
+        /*color when not in hover*/
+        /* !!important light colors cause dark background and vice-versa */
+        /* !!change filter in webkit-slider-thumb to adjust its color to this one */
+        accent-color: white;
+    }
+
+    input[type='range']::-webkit-slider-runnable-track {
+        height: 0.3rem;
+        /*allow slider to go all the way to the right*/
+        margin-right: -12px;
+    }
+
+    input[type='range']::-webkit-slider-thumb {
+        /*to change thumb color, filter based on current accent color, !!Change this if changing accent color!!*/
+        filter: brightness(0) saturate(100%) invert(100%) sepia(8%) saturate(0%) hue-rotate(320deg) brightness(110%) contrast(110%);
+        /*hide when not in hover*/
+        visibility: hidden;
+        /* thumb sizing */
+        height: 20px;
+        width: 20px;
+        /* align to slider line */
+        margin-top: -5.25px;
+        border-radius: 50%;
+    }
 
 }
 
+/* todo add support for other browsers*/
+
+/* #endregion rangeinputstyles */
+
 /* #region hover elements */
 a:hover {
+    /* all anchors become highlited on hover */
     color: var(--highlight-color);
 
     span.square {
+        /* background highlight for the + box on make playlist */
         background-color: var(--highlight-color) !important;
     }
 
     img {
-        color: var(--highlight-color);
+        /* brighten on hover */
         filter: brightness(100%) !important;
     }
 
@@ -101,44 +139,31 @@ a:hover {
 
     }
 
-    /* preselected element (current page) */
-    div:first-child {
+    /* preselected element (home page, first child is home symbol) */
+    div:first-of-type {
         border-left: 3px solid lime;
     }
 
-    /* switches prestyled "hover" when another element is hovered*/
-    &:has(div:hover:not(:first-child)) {
-        div:first-child {
+    /* switches preselected helement when another element is hovered*/
+    /*if .top-nav has a div in an hover state, and that div is not the first div (in this case home) make the border transparent*/
+    &:has(div:hover:not(:first-of-type)) {
+        div:first-of-type {
             border-left: 3px solid transparent;
         }
     }
 
+    /* make border colored on hover */
     div:hover {
         border-left: 3px solid lime;
     }
-
 }
 
 .categories-nav {
 
     a {
 
-        /* hr{
-            position: relative;
-            left: 25%;
-            display: none;
-            color: lime;
-            width: 50%;
-        }
-
-        &:hover hr {
-
-            display: inline-block;
-        } different approach but causes snapping of page*/
-
-
         div {
-            /* to avoid page snapping on hover */
+            /* transparent to avoid page snapping on hover */
             border: 2px solid transparent;
             position: relative;
             width: 50%;
@@ -148,32 +173,30 @@ a:hover {
         }
 
         &:hover div {
-
             border-bottom: 2px solid lime;
         }
     }
 }
 
-/* #end region hover elements */
+.img-container:hover {
+    img {
+        /*dim on hover*/
+        filter: brightness(50%);
+    }
 
-/* #region rangeinputstyles */
+    i {
+        /* display play button on cards */
+        display: inline-block !important;
+    }
+}
 
-/*works on 77% of devices*/
-span.range {
-    /*to make hover accurate*/
-    height: 0.3rem;
-    width: fit-content;
-    /* align to the center of the span */
-    position: relative;
-    bottom: 0.17rem;
-
+.range {
     &:hover {
 
         input[type='range'] {
             /*make green on hover*/
             /* !!!!important light colors cause dark background and vice-versa */
-            accent-color: rgb(11, 167, 24);
-            /* todo fix this making thumb green instead of white */
+            accent-color: #79b229;
         }
 
         input[type='range']::-webkit-slider-thumb {
@@ -183,46 +206,10 @@ span.range {
         }
 
     }
-
-    input[type='range'] {
-        width: 80%;
-        height: 0.3rem;
-        /*rounded edges*/
-        border-radius: 5px;
-        /*color when not in hover*/
-        /* !!!!important light colors cause dark background and vice-versa */
-        accent-color: var(--highlight-color);
-
-    }
-
-    input[type='range']::-webkit-slider-runnable-track {
-        height: 0.3rem;
-        /*allow slider to go all the way to the right*/
-        margin-right: -12px;
-
-    }
-
-    input[type='range']::-webkit-slider-thumb {
-        /*hide when not in hover*/
-        visibility: hidden;
-        /* thumb sizing */
-        height: 20px;
-        width: 20px;
-        /* align to slider line */
-        margin-top: -5.25px;
-        border-radius: 50%;
-    }
 }
 
+/* #end region hover elements */
 
-/* input[type='range']::-ms-fill-lower {
-    background-color: green !important;
-} doesn't work in webkit*/
-
-
-/* todo add support for other browsers*/
-
-/* #endregion rangeinputstyles */
 
 /* #region debug */
 
@@ -271,6 +258,7 @@ main {
     font-weight: 600;
 
     #sidebar {
+
         width: 50px;
         min-width: 50px;
         flex-direction: column;
@@ -278,41 +266,42 @@ main {
         position: relative;
         background-color: var(--secondary-color);
 
-
+        /*hide scrollbar of playlists*/
+        &::-webkit-scrollbar {
+            width: 0;
+        }
 
         overflow-y: scroll;
+
 
         /* no top nav padding to allow hover styling */
         &>*:not(.top-nav, .logo) {
             padding: 0 2rem 2rem 2rem;
         }
 
+        .top-nav {
+            background-color: black;
+            position: sticky;
+            top: 0;
+            z-index: 1;
 
+            .logo {
+                padding: 0.5rem;
 
-        .logo {
+                a {
+                    img {
+                        width: 100%;
+                    }
 
-            padding: 0.5rem;
+                    img:last-child {
+                        display: none;
 
-            a {
-                img {
-                    width: 100%;
-                }
-
-                img:last-child {
-                    display: none;
-
+                    }
                 }
             }
-        }
-
-
-
-
-        .top-nav {
 
             div {
                 padding: 0 0.5rem;
-
                 /*line-height instead of padding to avoid deadzones between buttons causing glitchy behavior*/
                 line-height: 40px;
 
@@ -334,15 +323,11 @@ main {
                         }
                     }
                 }
-
             }
 
             & div:first-child {
                 padding-top: 0;
-
             }
-
-
         }
 
         .mid-nav {
@@ -381,21 +366,19 @@ main {
                             transform: translate(-50%, -50%);
                         }
                     }
-
                 }
             }
-
-
-
-
-
         }
 
         .bottom-nav {
+            position: sticky;
+            bottom: 0;
             margin-top: auto;
+            padding-top: 1rem;
             display: flex;
             flex-direction: column;
             align-items: center;
+            background-color: black;
 
             hr {
                 display: none;
@@ -427,9 +410,7 @@ main {
                     }
                 }
             }
-
         }
-
     }
 
     #main-content {
@@ -440,6 +421,7 @@ main {
 
         /*fake header*/
         #upgrade-plan {
+            z-index: 3;
             position: sticky;
             top: 0;
             min-width: calc(100% - 50px);
@@ -448,17 +430,12 @@ main {
             justify-content: flex-end;
             padding: 0.5rem;
 
-
             .upgrade-bttn {
-
                 vertical-align: middle;
                 align-self: center;
-
                 border: 1px solid;
                 border-radius: 2rem;
-
                 padding: 1rem;
-
             }
         }
 
@@ -472,7 +449,6 @@ main {
                 padding: 0.5rem 0;
 
                 a {
-
                     margin: 0.5rem;
                     margin-bottom: 2rem;
                 }
@@ -487,15 +463,10 @@ main {
                                 img {
                                     border-radius: 50%;
                                 }
-
                             }
-
-
                         }
                     }
                 }
-
-
 
                 .row-title {
                     padding-bottom: 1.2rem;
@@ -511,26 +482,18 @@ main {
                     }
                 }
 
-
-
                 & div {
                     &.d-flex {
                         flex-wrap: wrap;
                     }
 
-
-
-
                     .card {
-
                         flex-basis: 50%;
                         padding: 1rem 0.2rem 0 0.2rem;
 
                         .img-container {
                             position: relative;
-
                             width: 100%;
-
 
                             i {
                                 display: none;
@@ -543,21 +506,8 @@ main {
                                 color: white;
                             }
 
-                            &:hover {
-                                position: relative;
-
-                                img {
-                                    filter: brightness(50%);
-                                }
-
-                                i {
-                                    display: inline-block;
-                                }
-                            }
-
 
                         }
-
 
                         .info-container {
                             text-align: center;
@@ -566,19 +516,10 @@ main {
                             h3 {
                                 padding-top: 1rem;
                             }
-
                         }
-
-
-
                     }
-
-
                 }
-
             }
-
-
         }
     }
 }
@@ -600,11 +541,6 @@ footer {
         justify-content: space-between;
         height: 100%;
 
-
-        /* to avoid breaking when viewport width too low */
-        overflow-x: scroll;
-
-
         .current-song {
             /* bottom left nav section for current song being played */
             width: 140px;
@@ -622,7 +558,6 @@ footer {
                         /* height auto to allow auto resizing when container changes */
                         height: auto;
                         width: 100%;
-
                     }
                 }
             }
@@ -640,7 +575,6 @@ footer {
                 /* to color the song info lower text */
                 a span {
                     color: var(--secondary-text-color);
-
                 }
             }
 
@@ -652,7 +586,6 @@ footer {
                 a {
                     display: block;
                 }
-
 
                 color: var(--secondary-text-color);
             }
@@ -678,7 +611,6 @@ footer {
 
             .song-time-control {
                 justify-content: center;
-
                 font-size: smaller;
 
                 span:nth-child(2) {
@@ -693,10 +625,7 @@ footer {
             justify-content: center;
             gap: 5%;
             padding: 0 1rem;
-
         }
-
-
     }
 }
 
@@ -712,20 +641,19 @@ footer {
         width: 230px;
         min-width: 230px;
 
-        .logo {
-            height: 110px;
-            padding-top: 2rem;
-
-            img:last-child {
-                display: inline !important;
-            }
-
-            img:first-child {
-                display: none;
-            }
-        }
-
         .top-nav {
+            .logo {
+                height: 110px;
+                padding-top: 2rem;
+
+                img:last-child {
+                    display: inline !important;
+                }
+
+                img:first-child {
+                    display: none;
+                }
+            }
 
             div {
                 padding: 0 2rem;
@@ -765,7 +693,6 @@ footer {
                     display: inline;
 
                     img {
-
                         width: 10%;
                     }
                 }
@@ -786,7 +713,6 @@ footer {
 
                 .img-container {
                     flex-basis: 30%;
-
                 }
             }
 
@@ -829,7 +755,6 @@ footer {
                         display: inline-block;
                         padding-right: 0.3rem;
                     }
-
                 }
             }
 
