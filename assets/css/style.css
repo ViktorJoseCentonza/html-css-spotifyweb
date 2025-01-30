@@ -271,18 +271,21 @@ main {
             width: 0;
         }
 
+        /* todo add style  */
         overflow-y: scroll;
 
 
-        /* no top nav padding to allow hover styling */
-        &>*:not(.top-nav, .logo) {
+        /* no top nav padding to allow accurate hover styling */
+        &>*:not(.top-nav) {
             padding: 0 2rem 2rem 2rem;
         }
 
         .top-nav {
+            /* to hide items behind when scrolling */
             background-color: black;
             position: sticky;
             top: 0;
+            /* to hide items behind when scrolling */
             z-index: 1;
 
             .logo {
@@ -294,6 +297,7 @@ main {
                     }
 
                     img:last-child {
+                        /* to hide second image that switches with media queries */
                         display: none;
 
                     }
@@ -308,6 +312,7 @@ main {
                 a {
 
                     span {
+                        /* hide sidebar text on low width */
                         display: none;
                         vertical-align: super;
 
@@ -315,22 +320,22 @@ main {
 
 
                     img {
+                        /* sidebar icon styling */
                         width: 30px;
+                        /* dimm to allow hover behavior */
                         filter: brightness(50%);
 
                         &[src="assets/img/home.svg"] {
+                            /* less dimmed to show currently selected */
                             filter: brightness(90%);
                         }
                     }
                 }
             }
-
-            & div:first-child {
-                padding-top: 0;
-            }
         }
 
         .mid-nav {
+            /* completely hide playlist section */
             display: none;
 
             div {
@@ -339,12 +344,12 @@ main {
                 }
 
                 a {
-
+                    /* avoid inline behavior of playlist-names */
                     display: block;
                     padding: 0.5rem 0;
 
+                    /* different style for create playlist .square */
                     span:not(.square) {
-
                         padding-left: 0.5rem;
                     }
 
@@ -354,10 +359,12 @@ main {
                         background-color: var(--secondary-text-color);
                         width: 40px;
                         height: 40px;
+                        /* align create playlist text */
                         vertical-align: middle;
 
 
                         i {
+                            /* center the plus icon inside the square */
                             font-size: xx-large;
                             color: black;
                             position: absolute;
@@ -380,16 +387,17 @@ main {
             align-items: center;
             background-color: black;
 
-            hr {
-                display: none;
-            }
-
             .download-cta {
+                padding-bottom: 0.75rem;
+
                 span {
                     display: none;
                 }
+            }
 
-                padding-bottom: 0.75rem;
+            hr {
+                /* separation for download cta line hidden for low width screen */
+                display: none;
             }
 
             .user-profile {
@@ -415,20 +423,19 @@ main {
 
     #main-content {
         background-color: var(--main-color);
-        flex-grow: 1;
         overflow-y: scroll;
         font-weight: 700;
 
         /*fake header*/
         #upgrade-plan {
+            /* avoid clipping */
             z-index: 3;
             position: sticky;
             top: 0;
-            min-width: calc(100% - 50px);
             height: 110px;
             background-color: var(--header-color);
             justify-content: flex-end;
-            padding: 0.5rem;
+            padding: 1rem;
 
             .upgrade-bttn {
                 vertical-align: middle;
@@ -443,6 +450,7 @@ main {
             padding: 0 1rem;
 
             nav {
+                /* width for categories element */
                 flex-basis: 25%;
                 flex-wrap: wrap;
                 justify-content: center;
@@ -454,35 +462,27 @@ main {
                 }
             }
 
+            /*general style for rows inside #content*/
             .row {
-
-                .popular-artists-container& {
-                    .d-flex {
-                        .card {
-                            .img-container {
-                                img {
-                                    border-radius: 50%;
-                                }
-                            }
-                        }
-                    }
-                }
-
                 .row-title {
                     padding-bottom: 1.2rem;
 
                     h1 {
+                        /* main row title */
                         font-size: x-large;
                     }
 
                     span {
-                        /*display block because it wouldn't move the h1 otherwise*/
-                        display: block;
-                        margin-top: 1rem;
+                        /* subtitles for main titles of rows */
+                        /*display inline-block because it wouldn't move the h1 otherwise*/
+                        display: inline-block;
+                        margin-top: 0.4rem;
                     }
                 }
 
                 & div {
+
+                    /* card wrapper selector*/
                     &.d-flex {
                         flex-wrap: wrap;
                     }
@@ -496,6 +496,7 @@ main {
                             width: 100%;
 
                             i {
+                                /* style for hover playbutton */
                                 display: none;
                                 z-index: 2;
                                 position: absolute;
@@ -505,20 +506,24 @@ main {
                                 font-size: 50px;
                                 color: white;
                             }
-
-
                         }
 
                         .info-container {
                             text-align: center;
                             padding-bottom: 2rem;
 
+                            /* card bottom title */
                             h3 {
                                 padding-top: 1rem;
                             }
                         }
                     }
                 }
+            }
+
+            .popular-artists-container .img-container img {
+                /* round images for artists */
+                border-radius: 50%;
             }
         }
     }
@@ -541,8 +546,9 @@ footer {
         justify-content: space-between;
         height: 100%;
 
+        /* bottom left nav section for current song being played */
         .current-song {
-            /* bottom left nav section for current song being played */
+            /* avoid breaking on low widths */
             width: 140px;
             justify-content: space-around;
 
@@ -562,12 +568,14 @@ footer {
                 }
             }
 
+            /* title,name, and author text styling */
             .song-info {
                 flex-basis: 40%;
                 align-self: center;
                 font-size: x-small;
                 padding-right: 0.5rem;
 
+                /* song title name heading */
                 h4 {
                     font-size: small;
                 }
@@ -584,6 +592,7 @@ footer {
                 flex-basis: 20%;
 
                 a {
+                    /* to make icons stack on low width, change in media queries */
                     display: block;
                 }
 
@@ -591,17 +600,21 @@ footer {
             }
         }
 
+        /* main navigation container for songs */
         .song-nav {
             flex-grow: 1;
             text-align: center;
 
+            /* container for button control of songs */
             .song-control {
                 justify-content: center;
                 align-items: center;
                 gap: 1.5rem;
                 padding-bottom: 1rem;
+                /* avoid breaking on low width */
                 min-width: 200px;
 
+                /* make play button larger also enlarged on hover*/
                 a:nth-child(3) {
                     i {
                         font-size: xx-large;
@@ -609,17 +622,21 @@ footer {
                 }
             }
 
+            /* song-time slider container */
             .song-time-control {
                 justify-content: center;
                 font-size: smaller;
 
+                /* make range slider take up more space */
                 span:nth-child(2) {
                     flex-basis: 60%;
                 }
             }
         }
 
+        /* bottom right menu for uncommon functions and volume control */
         .utilities {
+            /* avoid breaking on low widths */
             width: 200px;
             font-size: smaller;
             justify-content: center;
@@ -637,62 +654,80 @@ footer {
 @media screen and (min-width:640px) {
 
     nav#sidebar {
+        /* align all items to the left instead of centered on wider sidebar */
         align-items: flex-start;
+        /* enlarge sidebar */
         width: 230px;
+        /* avoid shrinking on low widths */
         min-width: 230px;
 
         .top-nav {
-            .logo {
-                height: 110px;
-                padding-top: 2rem;
-
-                img:last-child {
-                    display: inline !important;
-                }
-
-                img:first-child {
-                    display: none;
-                }
-            }
 
             div {
-                padding: 0 2rem;
+                /* padding to account for hover margin */
+                padding: 0 calc(2rem - 3px);
 
                 a {
                     span {
+                        /* unhide main pages text */
                         display: inline;
                     }
                 }
             }
+
+            .logo {
+                /* enlarge top logo */
+                height: 110px;
+                padding-top: 2rem;
+
+                img:last-child {
+                    /* switch displayed logo */
+                    display: inline !important;
+                }
+
+                img:first-child {
+                    /* switch displayed logo */
+                    display: none;
+                }
+            }
+
+
         }
 
         div.mid-nav {
+            /* unhide playlist section */
             display: inline;
         }
 
         .bottom-nav {
+            /* switch from flex to inline */
             display: inline;
 
             .download-cta {
                 span {
+                    /* unhide cta text */
                     display: inline;
                     padding-left: 0.5rem;
                 }
             }
 
             hr {
+                /* unhide hr */
                 display: block !important;
             }
 
             .user-profile {
                 a {
+                    /* switch from flex */
+                    display: inline;
+
                     span {
+                        /* unhide profile name */
                         display: inline;
                     }
 
-                    display: inline;
-
                     img {
+                        /* profile picture styling */
                         width: 10%;
                     }
                 }
@@ -700,66 +735,45 @@ footer {
         }
     }
 
-    #upgrade-plan {
-        min-width: calc(100% - 230px);
-    }
-
     footer {
         nav#main-bottom-nav {
 
-            .current-song {
-                /* resize left nav container to align to sidebar */
-                width: 200px;
-
-                .img-container {
-                    flex-basis: 30%;
-                }
-            }
-
-            .utilities {
-                /* resize right nav container to have same width as the left */
+            &>div:not(:nth-child(2)) {
+                /* resize left and right nav containers*/
                 width: 200px;
             }
+
+            /*current song container image resizing*/
+            .current-song .img-container {
+                flex-basis: 30%;
+            }
+
         }
     }
 }
 
-
-
-
 @media screen and (min-width:880px) {
 
-    main {
-        #main-content {
-            #content {
-                .row {
-                    div {
-                        div.card {
-                            flex-basis: 25%;
-                        }
-                    }
-                }
-            }
-        }
+    main #main-content #content .row div div.card {
+        /* change card width */
+        flex-basis: 25%;
     }
 
     footer {
         nav#main-bottom-nav {
-            .current-song {
+
+            &>div:not(:nth-child(2)) {
+                /* widen outer bottom navs */
                 width: 230px;
-
-                .song-interaction {
-
-                    /*change interaction elements from column to row*/
-                    a {
-                        display: inline-block;
-                        padding-right: 0.3rem;
-                    }
-                }
             }
 
-            .utilities {
-                width: 230px;
+            .current-song .song-interaction {
+
+                /*change interaction elements from column to row*/
+                a {
+                    display: inline-block;
+                    padding-right: 0.3rem;
+                }
             }
         }
     }
@@ -767,20 +781,10 @@ footer {
 
 @media screen and (min-width:1440px) {
 
-    main {
-        #main-content {
-            #content {
-                .row {
-                    div {
-                        div.card {
-                            flex-basis: calc(100% / 6);
-                        }
-                    }
-                }
-            }
-        }
+    /* reduce card container width */
+    main #main-content #content .row div div.card {
+        flex-basis: calc(100% / 6);
     }
 }
-
 
 /* #endregion mediaqueries */
